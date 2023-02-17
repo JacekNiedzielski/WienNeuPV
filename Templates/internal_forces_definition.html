@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title %}
+TimberConstruction
+{% endblock %}
+
+{% block content %} 
+
+<div class="container-fluid">
+    <form id="schnittgroessen_form" action="{{ url_for('internal_forces') }}" method="POST">
+        <div class="row">
+            <div class="col-3">
+                <p>Schnittgroessen</p>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="bending_moment">Biegemoment</label></div><br>
+                    <div class="col-3"><input type="text" id="bending_moment" name="bending_moment" class="form-control" value="300"></div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-flex"></div>
+                    <div class="col-3"><input type="submit" value="Akzeptieren" class="btn btn-primary"></div>
+                </div>
+            </div>
+        </div>
+    </form> 
+</div>
+{% endblock %}

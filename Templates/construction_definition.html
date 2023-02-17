@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}
+TimberConstruction
+{% endblock %}
+
+{% block content %} 
+
+<div class="container-fluid">
+    <form id="timber_construction_form" action="{{ url_for('timber_construction') }}" method="POST">
+        <div class="row">
+            <div class="col-3">
+                <p>Dachkonstruktion: Sparren</p>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="sparren_holz_klasse">Holzklasse</label></div>
+                    <div class="col-3">
+                        <select id="sparren_holz_klasse" name="sparren_holz_klasse" class="form-select">
+                            {% for class in timber_classes %}
+                            <option value="{{class}}">{{class}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="sparrenBreite">Querschnittsbreite [mm]</label></div><br>
+                    <div class="col-3"><input type="text" id="sparrenBreite" name="sparrenBreite" class="form-control" value="300"></div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="sparrenHoehe">Querschnittshoehe [mm]</label></div><br>
+                    <div class="col-3"><input type="text" id="sparrenHoehe" name="sparrenHoehe" class="form-control" value="300"></div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="sparrenAbstand">Elementenabstand [mm]</label></div><br>
+                    <div class="col-3"><input type="text" id="sparrenAbstand" name="sparrenAbstand" class="form-control" value="300"></div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="sparrenLaenge">Elementenlaenge [mm]</label></div><br>
+                    <div class="col-3"><input type="text" id="sparrenLaenge" name="sparrenLaenge" class="form-control" value="300"></div>
+                </div>
+            </div>
+            <div class="col-3">
+                <p>Dachkonstruktion: Pfetten</p>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="pfetten_holz_klasse">Holzklasse</label></div>
+                    <div class="col-3">
+                        <select id="pfetten_holz_klasse" name="pfetten_holz_klasse" class="form-select">
+                            {% for class in timber_classes %}
+                            <option value="{{class}}">{{class}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="pfettenBreite">Querschnittsbreite [mm]</label></div><br>
+                    <div class="col-3"><input type="text" id="pfettenBreite" name="pfettenBreite" class="form-control" value="300"></div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="pfettenHoehe">Querschnittshoehe [mm]</label></div><br>
+                    <div class="col-3"><input type="text" id="pfettenHoehe" name="pfettenHoehe" class="form-control" value="300"></div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="pfettenAbstand">Elementenabstand [mm]</label></div><br>
+                    <div class="col-3"><input type="text" id="pfettenAbstand" name="pfettenAbstand" class="form-control" value="300"></div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="pfettenLaenge">Elementenlaenge [mm]</label></div><br>
+                    <div class="col-3"><input type="text" id="pfettenLaenge" name="pfettenLaenge" class="form-control" value="300"></div>
+                </div>
+            </div>
+            <div class="col">
+                <p>Bemessungsparamter</p>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="Nutzungsklasse">Nutzungsklasse</label></div><br>
+                    <div class="col-3">
+                        <select id="Nutzungsklasse" name="Nutzungsklasse" class="form-select">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="Lasteinwirkungsdauer">Klasse der Lasteinwirkungsdauer</label></div><br>
+                    <div class="col-3">
+                        <select id="Lasteinwirkungsdauer" name="Lasteinwirkungsdauer" class="form-select">
+                            <option value="ständigeEinwirkung">Ständige Einwirkung</option>
+                        </select>
+                     </div>
+                </div>
+                <div class="row">
+                    <div class="col-flex col-form-label"><label for="Materialteilsicherheitsbeiwert">Materialteilsicherheitsbeiwert</label></div><br>
+                    <div class="col-3">
+                        <select id="Materialteilsicherheitsbeiwert" name="Materialteilsicherheitsbeiwert" class="form-select">
+                            <option value="1.3">1.3</option>
+                        </select>
+                     </div>
+                </div>
+                <br>
+                <div class="row">
+                    <div class="col-flex"></div>
+                    <div class="col-3"><input type="submit" value="Akzeptieren" class="btn btn-primary"></div>
+                </div>
+            </div>
+        </div>
+    </form> 
+</div>
+{% endblock %}
